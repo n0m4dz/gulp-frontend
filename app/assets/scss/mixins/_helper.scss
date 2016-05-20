@@ -1,0 +1,70 @@
+// Reset filters for IE
+//
+// When you need to remove a gradient background, don't forget to use this to reset
+// the IE filter for IE9 and below.
+@mixin reset-filter() {
+  //filter: e(% ("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+/*** CLEAR ***/
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+/*** LOCATION ***/
+@mixin locate($axis: "both", $top: 50%, $left: 50%) {
+  position: absolute;
+  @if $axis == "y" {
+    top: $top;
+    @include translateY($top * -1);
+  }
+  @if $axis == "x" {
+    left: $left;
+    @include translateX($left * -1);
+  }
+  @if $axis == "both" {
+    left: $left;
+    top: $top;
+    @include translate($left * -1, $top * -1);
+  }
+}
+
+
+/*** ROTATE ***/
+@mixin rotate($degrees) {
+  -webkit-transform: rotate(#{$degrees}deg);
+  -moz-transform: rotate(#{$degrees}deg);
+  -ms-transform: rotate(#{$degrees}deg);
+  -o-transform: rotate(#{$degrees}deg);
+  transform: rotate(#{$degrees}deg);
+
+  filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+  zoom: 1;
+}
+
+
+/*** BOX SHADOW ***/
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+  box-shadow: $shadow;
+}
+
+/*** FONT & ICON FONT SIZE ***/
+@mixin fontsize($min: 8) {
+  $i: $min;
+  @while $i <= 100 {
+    .s#{$i} {
+      font-size: #{$i}px;
+    }
+    $i: $i + 2;
+  }
+}

@@ -1,0 +1,58 @@
+@mixin color-variant($bg-color: #2C2E2F, $lt-percent: 10%, $lter-percent: 15%, $dk-percent: 10%, $dker-percent: 15%) {
+  background-color: $bg-color;
+  &.lt,
+  .lt {
+    @include color-schema-lighten(2.5%, $bg-color, $lt-percent);
+  }
+  &.lter,
+  .lter {
+    @include color-schema-lighten(5%, $bg-color, $lter-percent);
+  }
+  &.dk,
+  .dk {
+    @include color-schema-darken(2.5%, $bg-color, $dk-percent);
+  }
+  &.dker,
+  .dker {
+    @include color-schema-darken(5%, $bg-color, $dker-percent);
+  }
+  &.bg,
+  .bg {
+    background-color: $bg-color;
+  }
+}
+
+@mixin text-variant($bg-color, $name) {
+  .text-#{$name} {
+    color: $bg-color;
+  }
+  .text-#{$name}-lt {
+    color: adjust-saturation(lighten($bg-color, 5%), -2.5);
+  }
+  .text-#{$name}-lter {
+    color: lighten($bg-color, 10%);
+  }
+  .text-#{$name}-dk {
+    color: darken($bg-color, 5%);
+  }
+  .text-#{$name}-dker {
+    color: darken($bg-color, 10%);
+  }
+}
+
+@mixin color-schema-darken($sat-percent, $bg-color: #555, $percent: 15%) {
+  background-color: saturate(darken($bg-color, $percent), $sat-percent);
+}
+
+@mixin color-schema-lighten($sat-percent, $bg-color: #ccc, $percent: 15%) {
+  background-color: desaturate(lighten($bg-color, $percent), $sat-percent);
+}
+
+@mixin bg-variant($parent, $color) {
+  #{$parent} {
+    background-color: $color;
+  }
+  a#{$parent}:hover {
+    background-color: darken($color, 10%);
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "path": {
+    "root": "./",
+    "app": "./app/",
+    "dist": "./dist/",
+    "vendor_dir": "./app/assets/vendor/",
+    "bower_dir": "./bower_components/"
+  },
+  "server": {
+    "dev": {
+      "root": "./app/",
+      "host": "localhost",
+      "port": "8008"
+    },
+    "dist":{
+      "root": "./dist/",
+      "host": "localhost",
+      "port": "9000"
+    }
+  },
+  "debug" : true,
+  "angular" : true
+}

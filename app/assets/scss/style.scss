@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext);
+@import "compass";
+@import "base/base";
+@import "mixins/mixins";
+@import "components/components";
+@import "plugins/plugins";
+@import "reset";
+
+@include scrollbar($scrollbar-size, lighten($scrollbar-primary-color, 15%), darken($scrollbar-secondary-color, 20%));
+
+.greeting{
+  text-align: center;
+  width: 500px;
+  color: $brand-danger;
+
+  @include locate('both');
+  img{
+    height: 200px;
+  }
+}

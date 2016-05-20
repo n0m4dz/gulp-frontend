@@ -1,0 +1,17 @@
+@mixin text-variant($bg-color, $name) {
+  .text-#{$name} {
+    color: $bg-color;
+  }
+  .text-#{$name}-lt {
+    color: adjust-saturation(lighten($bg-color, 5%), -2.5);
+  }
+  .text-#{$name}-lter {
+    color: lighten($bg-color, 10%);
+  }
+  .text-#{$name}-dk {
+    color: darken($bg-color, 5%);
+  }
+  .text-#{$name}-dker {
+    color: darken($bg-color, 10%);
+  }
+}

@@ -1,0 +1,77 @@
+@mixin font-variant($bg-color, $font-color, $link-color: #fff, $hover-color: #fff) {
+  color: $font-color;
+  a {
+    color: $link-color;
+    &:hover {
+      color: $hover-color;
+    }
+    &.list-group-item {
+      &:hover,
+      &:focus {
+        background-color: inherit;
+      }
+    }
+  }
+  .nav {
+    > li {
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        > a {
+          color: $hover-color;
+          @include color-schema-lighten(2.5%, $bg-color, 5%);
+        }
+      }
+      > a {
+        color: darken($link-color, 5%);
+        &:hover,
+        &:focus {
+          @include color-schema-lighten(2.5%, $bg-color, 5%);
+        }
+      }
+    }
+    .open > a {
+      @include color-schema-lighten(2.5%, $bg-color, 5%);
+    }
+  }
+  .caret {
+    border-top-color: $font-color;
+    border-bottom-color: $font-color;
+  }
+  &.navbar .nav {
+    > li.active > a {
+      color: $hover-color;
+      @include color-schema-darken(2.5%, $bg-color, 5%);
+    }
+  }
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      color: $hover-color;
+    }
+  }
+  .text-muted {
+    color: darken($font-color, 10%) !important;
+  }
+  .text-lt {
+    color: lighten($font-color, 25%) !important;
+  }
+  .icon-muted {
+    color: darken($font-color, 10%) !important;
+  }
+  &.auto,
+  .auto {
+    .list-group-item {
+      border-color: darken($bg-color, 5%) !important;
+      background-color: transparent;
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        @include color-schema-darken(2.5%, $bg-color, 5%);
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "gulp-seed",
+  "version": "0.0.1",
+  "authors": [
+    "n0m4dz <tseegii.it@gmail.com>"
+  ],
+  "description": "Front end project's boilerplate",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "keywords": [
+    "gulp",
+    "angular",
+    "boiler",
+    "plate"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.3.11",
+    "animate.css": "~3.2.0",
+    "angular-ui-router": "~0.2.13",
+    "bootstrap": "~3.3.2",
+    "angular-bootstrap": "~0.12.0",
+    "angular-sanitize": "~1.3.11",
+    "angular-animate": "~1.3.11"
+  }
+}
